@@ -6,9 +6,9 @@ A 3-month collaborative learning roadmap covering C, electronics, bare-metal MCU
 
 | Person | GitHub Handle |
 |--------|--------------|
-| Person 1 | @TBD |
-| Person 2 | @TBD |
-| Person 3 | @TBD |
+| Amogh | @TBD |
+| Vaishnavi | @TBD |
+| Sujay | @TBD |
 
 ---
 
@@ -53,9 +53,9 @@ embedded-engineering-roadmap/
 ├── README.md
 ├── .gitignore
 ├── week01/
-│   ├── person1/      # Individual work
-│   ├── person2/
-│   └── person3/
+│   ├── amogh/        # Individual work
+│   ├── vaishnavi/
+│   └── sujay/
 ├── shared/           # Shared utilities, libraries, and references
 └── docs/             # Notes, datasheets, diagrams
 ```
@@ -79,11 +79,11 @@ cat ~/.ssh/id_ed25519.pub
 
 ### Clone and First Commit
 ```bash
-git clone git@github.com:<org>/embedded-engineering-roadmap.git
-cd embedded-engineering-roadmap/week01/<your-folder>
-echo "# Week 1 — $(git config user.name)" > README.md
+git clone git@github.com:Majorwhiskey/embedded-engineering-roadmap.git
+cd embedded-engineering-roadmap/week01/amogh   # or vaishnavi / sujay
+echo "# Week 1 — Amogh" > README.md            # change to your name
 git add README.md
-git commit -m "week01: initial commit for <your-name>"
+git commit -m "week01: initial commit for amogh"
 git push
 ```
 
