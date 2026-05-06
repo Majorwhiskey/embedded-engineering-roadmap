@@ -1,0 +1,50 @@
+# Compiled object files
+*.o
+*.obj
+
+# Linker output
+*.elf
+*.bin
+*.hex
+*.map
+*.axf
+*.out
+
+# Build directories
+build/
+Build/
+out/
+Debug/
+Release/
+
+# Libraries
+*.a
+*.lib
+*.so
+
+# Listing / debug files
+*.lst
+*.lss
+*.sym
+*.dmp
+
+# Dependency files
+*.d
+
+# IDE / editor files
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Valgrind
+vgcore.*
