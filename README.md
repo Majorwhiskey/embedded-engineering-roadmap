@@ -77,9 +77,9 @@ flowchart TD
 
 | Name | GitHub | Focus |
 |------|--------|-------|
-| Amogh | @Majorwhiskey | — |
-| Vaishnavi | @TBD | — |
-| Sujay | @TBD | — |
+| Amogh | @Majorwhiskey | Embedded systems |
+| Vaishnavi | @vaishnaviuh | Embedded systems |
+| Sujay | @sujaygouda123 | Embedded systems |
 
 ---
 
