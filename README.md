@@ -159,26 +159,137 @@ RPi + MCP2515 reads CAN frames / OBD-II PIDs → WebSocket dashboard (Chart.js) 
 
 ## Getting Started
 
-### SSH Key Setup
-```bash
-ssh-keygen -t ed25519 -C "your_email@example.com"
-cat ~/.ssh/id_ed25519.pub   # paste into GitHub → Settings → SSH keys
-```
-
-### Clone & First Commit
-```bash
-git clone git@github.com:Majorwhiskey/embedded-engineering-roadmap.git
-cd embedded-engineering-roadmap/week01/amogh    # or vaishnavi / sujay
-echo "# Week 1 — Amogh" > README.md
-git add README.md
-git commit -m "week01: initial commit for amogh"
-git push
-```
-
 ### Install Tools (Week 1)
 ```bash
 sudo apt install build-essential valgrind gdb git
 # VS Code extensions: C/C++, GitLens
+```
+
+---
+
+## How to Contribute (Vaishnavi & Sujay)
+
+Follow these steps exactly once to get set up, then use the weekly workflow every week.
+
+---
+
+### Step 1 — Accept the Collaborator Invite
+
+Amogh will send you a GitHub collaborator invite to:
+`https://github.com/Majorwhiskey/embedded-engineering-roadmap`
+
+Check your email or go to **https://github.com/notifications** and accept it.  
+Without this you cannot push to the repo.
+
+---
+
+### Step 2 — Set Up SSH Key (one-time)
+
+```bash
+# Check if you already have a key
+ls ~/.ssh/id_ed25519.pub
+
+# If not, generate one
+ssh-keygen -t ed25519 -C "your_email@gmail.com"
+# Press Enter 3 times to accept defaults
+
+# Copy your public key
+cat ~/.ssh/id_ed25519.pub
+```
+
+Go to **GitHub → Settings → SSH and GPG keys → New SSH key**, paste the key and save.
+
+Test it:
+```bash
+ssh -T git@github.com
+# Expected: Hi <yourname>! You've successfully authenticated...
+```
+
+---
+
+### Step 3 — Clone the Repo (one-time)
+
+```bash
+git clone git@github.com:Majorwhiskey/embedded-engineering-roadmap.git
+cd embedded-engineering-roadmap
+```
+
+Configure your name and email if you haven't already:
+```bash
+git config --global user.name "Vaishnavi"       # or Sujay
+git config --global user.email "you@gmail.com"
+```
+
+---
+
+### Step 4 — Make Your First Commit
+
+Each person has their own subfolder inside each week. Only ever commit inside your own folder.
+
+```bash
+# Vaishnavi:
+cd week01/vaishnavi
+echo "# Week 1 — Vaishnavi" > README.md
+git add README.md
+git commit -m "week01: initial commit for vaishnavi"
+git push
+
+# Sujay:
+cd week01/sujay
+echo "# Week 1 — Sujay" > README.md
+git add README.md
+git commit -m "week01: initial commit for sujay"
+git push
+```
+
+---
+
+### Weekly Workflow (Every Week)
+
+```bash
+# 1. Always pull latest changes before starting work
+git pull
+
+# 2. Create a branch for your work (don't commit directly to main)
+git checkout -b week02-vaishnavi       # change week number and name
+
+# 3. Do your work inside your folder
+cd week02/vaishnavi
+# ... write code, take notes ...
+
+# 4. Stage and commit your changes
+git add .
+git commit -m "week02: add circular buffer implementation"
+
+# 5. Push your branch to GitHub
+git push -u origin week02-vaishnavi
+
+# 6. Open a Pull Request on GitHub
+#    Go to: https://github.com/Majorwhiskey/embedded-engineering-roadmap
+#    Click "Compare & pull request" → set base: main → Create PR
+#    Teammates can review, then merge into main
+```
+
+---
+
+### Rules
+
+- **Only touch your own folder** — `weekNN/<yourname>/`. Don't edit anyone else's files.
+- **Always `git pull` before starting** — avoids conflicts with teammates' pushes.
+- **Never force push** — it overwrites history for everyone.
+- **Commit format:** `weekNN: short description` — e.g. `week01: add bit manipulation library`
+
+---
+
+### If You Get a Conflict
+
+```bash
+git pull                   # this may show a conflict
+# Open the conflicted file — look for <<<<<<< markers
+# Edit to keep the correct version, remove the markers
+git add <conflicted-file>
+git commit                 # completes the merge
+git push
 ```
 
 ---
