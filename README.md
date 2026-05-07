@@ -1,48 +1,21 @@
 # Embedded Systems Engineering Roadmap
 
-A 3-month collaborative learning roadmap covering C, electronics, bare-metal MCU programming, networking protocols, RTOS, Linux, and security.
+3-month collaborative roadmap — C, electronics, bare-metal MCU, serial protocols, TCP/IP, SSH, RTOS, embedded Linux, TLS, and a capstone project.
 
-## Team
+**Start date:** May 7, 2026 | **End date:** ~August 6, 2026
 
-| Person | GitHub Handle |
-|--------|--------------|
-| Amogh | @TBD |
-| Vaishnavi | @TBD |
-| Sujay | @TBD |
+> Based on [m3y54m/Embedded-Engineering-Roadmap](https://github.com/m3y54m/Embedded-Engineering-Roadmap)
+> Color coding: 🟡 Required · 🩷 Recommended · ⬜ Optional
 
 ---
 
-## Roadmap Overview
+## Team
 
-### Month 1 — Foundations (Weeks 1–4)
-C language deep dive, electronics fundamentals, and bare-metal microcontroller programming.
-
-| Week | Topics | Projects |
-|------|--------|---------|
-| 1 | C fundamentals, pointers, memory model, bit manipulation, computer architecture, digital logic, Git basics | C memory playground (linked list/stack/queue + Valgrind), bit manipulation library, logic gate simulator |
-| 2 | MCU architecture, GPIO, timers, interrupts | LED blinky, button interrupt handler |
-| 3 | ADC/DAC, PWM, UART | Sensor reader, PWM LED dimmer |
-| 4 | I2C, SPI, bootloaders | I2C sensor driver, SPI display |
-
-### Month 2 — Protocols & Connectivity (Weeks 5–8)
-Networking, TCP/IP stack, SSH, MQTT, sockets, and RTOS.
-
-| Week | Topics | Projects |
-|------|--------|---------|
-| 5 | TCP/IP fundamentals, packets, Wireshark | Packet capture analysis, raw socket ping |
-| 6 | Sockets programming, MQTT | TCP echo server/client, MQTT pub/sub |
-| 7 | SSH internals, cryptography basics | SSH tunnel setup, key-based auth automation |
-| 8 | RTOS concepts, FreeRTOS tasks/queues/semaphores | Multitasked sensor pipeline |
-
-### Month 3 — Linux, Security & Capstone (Weeks 9–12)
-Embedded Linux, TLS, security hardening, and a final capstone project.
-
-| Week | Topics | Projects |
-|------|--------|---------|
-| 9 | Embedded Linux, Yocto/Buildroot, device tree | Custom Linux image |
-| 10 | TLS/mTLS, certificate management | TLS-secured MQTT client |
-| 11 | Security hardening, secure boot, threat modeling | Hardened device configuration |
-| 12 | Capstone project | End-to-end embedded + networked system |
+| Name | GitHub | Focus |
+|------|--------|-------|
+| Amogh | @Majorwhiskey | — |
+| Vaishnavi | @TBD | — |
+| Sujay | @TBD | — |
 
 ---
 
@@ -52,46 +25,100 @@ Embedded Linux, TLS, security hardening, and a final capstone project.
 embedded-engineering-roadmap/
 ├── README.md
 ├── .gitignore
+├── docs/
+│   └── references.md        ← all resource links
+├── shared/                  ← shared utilities, headers, scripts
 ├── week01/
-│   ├── amogh/        # Individual work
+│   ├── README.md            ← topics + projects for that week
+│   ├── amogh/
 │   ├── vaishnavi/
 │   └── sujay/
-├── shared/           # Shared utilities, libraries, and references
-└── docs/             # Notes, datasheets, diagrams
+├── week02/ … week12/        ← same pattern
 ```
 
-Each week gets its own top-level folder (`week01/`, `week02/`, ...) with a subdirectory per person for individual work.
+Each person works in their own subfolder. Use PRs for code review.  
+Commit format: `weekNN: short description` — e.g. `week01: add bit manipulation library`
+
+---
+
+## Month 1 — Foundations (Weeks 1–4)
+
+**Goal:** C programming, electronics, bare-metal MCU peripherals, debugging
+
+| Week | Title | Key Topics |
+|------|-------|-----------|
+| [01](week01/README.md) | C Programming & Computer Architecture | Pointers, memory model, bit manipulation, digital logic, Git |
+| [02](week02/README.md) | Electronics, Data Structures & Algorithms | Ohm's law, oscilloscope, FSM, circular buffer, sorting |
+| [03](week03/README.md) | MCU Peripherals I — GPIO, Timers, ADC, DAC, PWM | Bare-metal register writes, clock tree, linker scripts |
+| [04](week04/README.md) | Interrupts, DMA, Watchdog & Power Management | NVIC, DMA circular mode, IWDG, STOP mode, SWD+GDB |
+
+---
+
+## Month 2 — Systems & Networking (Weeks 5–8)
+
+**Goal:** Serial protocols, full TCP/IP networking, SSH, sockets, MQTT, Wi-Fi, RTOS
+
+| Week | Title | Key Topics |
+|------|-------|-----------|
+| [05](week05/README.md) | Serial Protocols — UART, I2C, SPI & Sensors | Register maps, logic analyser, BMP280, MPU6050, ILI9341 |
+| [06](week06/README.md) | Networking — OSI, TCP/IP, Packets, SSH | Wireshark, TCP handshake, SSH hardening, Scapy, DNS, DHCP |
+| [07](week07/README.md) | Socket Programming, MQTT & Wi-Fi on MCU | BSD sockets, select/epoll, MQTT QoS, ESP32 lwIP, Node-RED |
+| [08](week08/README.md) | RTOS — FreeRTOS, Tasks, Sync & Scheduling | Queues, mutexes, semaphores, event groups, heap management |
+
+---
+
+## Month 3 — Advanced & Capstone (Weeks 9–12)
+
+**Goal:** Embedded Linux, security, TLS, DSP, OTA, capstone project
+
+| Week | Title | Key Topics |
+|------|-------|-----------|
+| [09](week09/README.md) | Embedded Linux — Kernel, Drivers, Device Tree, IPC | U-Boot, char drivers, sysfs, Buildroot, pthreads |
+| [10](week10/README.md) | Debugging, Embedded Security & TLS | JTAG/SWD, hardfault debug, mbedTLS, mTLS, secure boot |
+| [11](week11/README.md) | Advanced Protocols, DSP & OTA Updates | CAN bus, CoAP, FIR/IIR filters, FFT, dual-bank OTA, BLE |
+| [12](week12/README.md) | Capstone Project | Full system integration — see options below |
+
+---
+
+## Capstone Options (Week 12)
+
+**Option A — Secure IoT Gateway**  
+STM32/ESP32 → FreeRTOS (4 tasks) → TLS MQTT → Raspberry Pi gateway (Mosquitto + FastAPI) → Node-RED dashboard. OTA updates pushed from Pi. GitHub Actions CI on every push.
+
+**Option B — Remote SSH Sensor Node**  
+Battery-powered STM32 + ESP32. STOP-mode sleep, sensor every 30 s, sync to server via SFTP when Wi-Fi available. TLS, watchdog, reverse SSH tunnel for remote debug. Target: <5 mA average.
+
+**Option C — Networked CAN Bus Monitor**  
+RPi + MCP2515 reads CAN frames / OBD-II PIDs → WebSocket dashboard (Chart.js) → InfluxDB logging → MQTT alerts → SSH tunnel access. Full systemd services with watchdog.
 
 ---
 
 ## Getting Started
 
-### SSH Key Setup (one-time)
+### SSH Key Setup
 ```bash
-# Generate a key (skip if you already have one)
 ssh-keygen -t ed25519 -C "your_email@example.com"
-
-# Copy the public key
-cat ~/.ssh/id_ed25519.pub
-
-# Add it to GitHub: Settings → SSH and GPG keys → New SSH key
+cat ~/.ssh/id_ed25519.pub   # paste into GitHub → Settings → SSH keys
 ```
 
-### Clone and First Commit
+### Clone & First Commit
 ```bash
 git clone git@github.com:Majorwhiskey/embedded-engineering-roadmap.git
-cd embedded-engineering-roadmap/week01/amogh   # or vaishnavi / sujay
-echo "# Week 1 — Amogh" > README.md            # change to your name
+cd embedded-engineering-roadmap/week01/amogh    # or vaishnavi / sujay
+echo "# Week 1 — Amogh" > README.md
 git add README.md
 git commit -m "week01: initial commit for amogh"
 git push
 ```
 
+### Install Tools (Week 1)
+```bash
+sudo apt install build-essential valgrind gdb git
+# VS Code extensions: C/C++, GitLens
+```
+
 ---
 
-## Conventions
+## Resources
 
-- Branch off `main` for experiments; merge via PR.
-- Commit messages: `weekNN: short description` (e.g. `week01: add bit manipulation library`).
-- Keep compiled binaries out of the repo — the `.gitignore` handles this.
-- Drop shared reference material and utilities in `shared/` or `docs/`.
+See [docs/references.md](docs/references.md) for all links.
