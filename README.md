@@ -9,6 +9,70 @@
 
 ---
 
+## Roadmap at a Glance
+
+```mermaid
+gantt
+    title 12-Week Embedded Systems Roadmap
+    dateFormat  YYYY-MM-DD
+    axisFormat  %b %d
+
+    section Month 1 · Foundations
+    Week 01 · C & Computer Architecture     :w01, 2026-05-07, 7d
+    Week 02 · Electronics & DSA             :w02, after w01, 7d
+    Week 03 · MCU Peripherals I             :w03, after w02, 7d
+    Week 04 · Interrupts, DMA & Power       :w04, after w03, 7d
+
+    section Month 2 · Systems & Networking
+    Week 05 · UART, I2C, SPI & Sensors      :w05, after w04, 7d
+    Week 06 · TCP/IP, Packets & SSH         :w06, after w05, 7d
+    Week 07 · Sockets, MQTT & Wi-Fi         :w07, after w06, 7d
+    Week 08 · FreeRTOS & RTOS Sync          :w08, after w07, 7d
+
+    section Month 3 · Advanced & Capstone
+    Week 09 · Embedded Linux & Drivers      :w09, after w08, 7d
+    Week 10 · Security, TLS & Debugging     :w10, after w09, 7d
+    Week 11 · DSP, CAN, OTA & BLE          :w11, after w10, 7d
+    Week 12 · Capstone Project              :crit, w12, after w11, 14d
+```
+
+```mermaid
+flowchart TD
+    subgraph M1["🟦 Month 1 — Foundations"]
+        W1["Week 1\nC · Pointers · Bit Ops\nGit · Computer Arch"]
+        W2["Week 2\nElectronics · Multimeter\nFSM · Circular Buffer"]
+        W3["Week 3\nGPIO · Timers · ADC\nPWM · DAC · Linker Scripts"]
+        W4["Week 4\nNVIC · DMA · Watchdog\nSTOP Mode · SWD/GDB"]
+    end
+
+    subgraph M2["🟩 Month 2 — Systems & Networking"]
+        W5["Week 5\nUART · I2C · SPI\nLogic Analyser · Sensors"]
+        W6["Week 6\nOSI · TCP/IP · SSH\nWireshark · Scapy"]
+        W7["Week 7\nBSD Sockets · MQTT\nESP32 Wi-Fi · lwIP"]
+        W8["Week 8\nFreeRTOS Tasks\nQueues · Mutexes · lwIP"]
+    end
+
+    subgraph M3["🟥 Month 3 — Advanced & Capstone"]
+        W9["Week 9\nU-Boot · Linux Drivers\nDevice Tree · Buildroot"]
+        W10["Week 10\nJTAG · mbedTLS · mTLS\nSecure Boot · CI/CD"]
+        W11["Week 11\nCAN · CoAP · OTA\nFIR/FFT · BLE · LoRa"]
+        W12{"Week 12\nCapstone\nA · B · C"}
+    end
+
+    W1 --> W2 --> W3 --> W4
+    W4 --> W5
+    W5 --> W6 --> W7 --> W8
+    W8 --> W9
+    W9 --> W10 --> W11 --> W12
+
+    style W12 fill:#f0a500,stroke:#c07800,color:#000
+    style M1 fill:#dbeafe,stroke:#93c5fd
+    style M2 fill:#dcfce7,stroke:#86efac
+    style M3 fill:#fee2e2,stroke:#fca5a5
+```
+
+---
+
 ## Team
 
 | Name | GitHub | Focus |
